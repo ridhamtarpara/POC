@@ -29,6 +29,7 @@ This value can be changed from 1 sec to 1 day. We can have a configuration file 
 - APIs:
 
 + A - GET a specific coin information :
+```
 Input: GET /coin-price?pair=USD-BTC
 Output: { "status":"OK",
         "info":[
@@ -45,8 +46,9 @@ Output: { "status":"OK",
             "updated": "",//timestamps (you can decide on the format thats the most suited)
         }]
 }
-
+```
 + B - GET all coins from an exchange :
+```
 Input: GET /exchange-info?name=bittrex
 Output: {
     "status":"OK",
@@ -64,8 +66,9 @@ Output: {
         "value": 50.5
     }]
 }
-
+```
 + ERROR situations:
+```
 {
     "status": "NOTOK",
         "errorcode":1001,
@@ -78,7 +81,7 @@ Output: {
         "errormessage" : "Invalid exchange not found",
         "messagedetail": "Provide more info if needed"
 }
-
+```
 
 **Step 5 - Create a Merge request**
 
