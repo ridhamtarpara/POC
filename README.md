@@ -16,7 +16,7 @@ Things to store:
 DB Table: MarketData
 - Last Updated - Timestamp
 - Coin pair - USD/BTC
-- Exchange - bittrex (all small)
+- Exchange - bittrex, poloniex (all small)
 - Price - float.
 
 **Step 3 - Use: https://www.npmjs.com/package/node-schedule to have this data pulled every 5 minutes and saved in the DB.**
@@ -25,7 +25,7 @@ This value can be changed from 1 sec to 1 day. We can have a configuration file 
 
 **Step 4 - Develop APIs using Node.js for fetching data from Db.**
 
-- Exchange: bittrex
+- Exchange: bittrex, poloniex
 - APIs:
 
 + A - GET a specific coin information :
