@@ -83,7 +83,8 @@ Output: {
 }
 ```
 
-**Step 5 - Create a Merge request**
+**Step 5 - Deploy on AWS**
+- Deploy it on AWS. username: himanshu14100@gmail.com
 
 Other things:
 - Use async-await.
