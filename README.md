@@ -84,7 +84,7 @@ Output: {
 ```
 
 **Step 5 - Deploy on AWS**
-- Deploy it on AWS. username: himanshu14100@gmail.com
+- Deploy it on AWS. Credentials shared by email.
 
 Other things:
 - Use async-await.
