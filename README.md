@@ -3,13 +3,16 @@ Using CCXT public API and creating a backend service
 
 # Task Overview:
 **Step 0 - Create a new branch: eng/public-API-bittrex-poloniex**
+
 **Step 1 - Pull in external data from an exchange "bittrex" and "poloniex"- Data: Coin prices.**
+
 https://www.npmjs.com/package/ccxt
 
-**Step 2 - Save it in database - Use MySQL.**
+**Step 2 - Save it in database**
+- Use MySQL
 https://www.npmjs.com/package/mysql
 
--Things to store:
+Things to store:
 DB Table: MarketData
 - Last Updated - Timestamp
 - Coin pair - USD/BTC
@@ -17,13 +20,15 @@ DB Table: MarketData
 - Price - float.
 
 **Step 3 - Use: https://www.npmjs.com/package/node-schedule to have this data pulled every 5 minutes and saved in the DB.**
+
 This value can be changed from 1 sec to 1 day. We can have a configuration file to change this value. The value can be picked up on config file change. (use file watcher, or something).
 
 **Step 4 - Develop APIs using Node.js for fetching data from Db.**
 
 - Exchange: bittrex
 - APIs:
-A - GET a specific coin information :
+
++ A - GET a specific coin information :
 Input: GET /coin-price?pair=USD-BTC
 Output: { "status":"OK",
         "info":[
@@ -41,7 +46,7 @@ Output: { "status":"OK",
         }]
 }
 
-B - GET all coins from an exchange :
++ B - GET all coins from an exchange :
 Input: GET /exchange-info?name=bittrex
 Output: {
     "status":"OK",
@@ -60,7 +65,7 @@ Output: {
     }]
 }
 
-ERROR situations:
++ ERROR situations:
 {
     "status": "NOTOK",
         "errorcode":1001,
