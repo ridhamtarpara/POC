@@ -52,7 +52,7 @@ Output: { "status":"OK",
 Input: GET /exchange-info?name=bittrex
 Output: {
     "status":"OK",
-    "coins": [
+    "info": [
     {
         "coin":"USD-BTC",
         "value": 5700
