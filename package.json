@@ -1,0 +1,15 @@
+{
+	"name": "eveningstar",
+	"author": "Pivotingsoftwares",
+	"version": "0.0.0",
+	"private": true,
+	"dependencies": {
+		"body-parser": "~1.15.2",
+		"cookie-parser": "~1.4.3",
+		"express": "~4.14.0",
+		"mysql": "^2.15.0",
+		"sequelize": "^4.14.0"
+	},
+	"devDependencies": {
+	}
+}
