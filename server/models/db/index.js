@@ -7,7 +7,7 @@ Promise.promisifyAll(require('mysql/lib/Connection').prototype);
 Promise.promisifyAll(require('mysql/lib/Pool').prototype);
 
 const pool = mysql.createPool({
-    host: config.db..host,
+    host: config.db.host,
     port: config.db.port,
     user: config.db.username,
     password: config.db.password,
