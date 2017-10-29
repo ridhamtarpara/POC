@@ -39,7 +39,7 @@ module.exports = {
         const createData = await connection.querySql(query);
       }
     } catch (e) {
-      // console.log(e, exchangeData);
+      console.log(e, exchangeData);
       logger.log(e);
       return [];
     }
