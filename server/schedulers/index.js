@@ -1,10 +1,11 @@
 const schedule = require('node-schedule');
 const currencyController = require('../controllers/currency');
 const config = require('../../config');
-console.log(config.cronTime);
+
+// start scheduler
 const scheduler = schedule.scheduleJob(config.cronTime, () => {
 	try {
-		// console.log('cron started\n\n\n\n\n\n');
+		// call controller method to get datafrom web
 		currencyController.getDataFromWeb();
 	} catch (e) {
 		console.log(e);

@@ -7,16 +7,20 @@ const config = require('../../../config');
 
 async function getMarketData(exchangeName) {
   try {
+    // get exchange data from ccxt
     const exchangeData = await ccxt[exchangeName]();
     await exchangeData.loadMarkets();
     let marketData = [];
+    // if exchange data already has tickers
     if (exchangeData.hasFetchTickers) {
       marketData = await exchangeData.fetchTickers();
     } else {
+      // load tickers for each market
       for (market in exchangeData.markets) {
         if (!exchangeData.markets[market].darkpool) {
           let data = await exchangeData.fetchTicker(market);
           marketData.push(data);
+          // timeout for 1 second as else it will hit rate limit
           await new Promise (resolve => setTimeout (resolve, 1000));
         }
       }
@@ -34,11 +38,13 @@ module.exports = {
       const coin = req.query.pair;
       if (coin) {
         const coinInfo = await currencyModel.getCoinPrice(coin);
+        // if coin info is not in db
         if (!coinInfo.length) {
           throw new Error(1001);
         }
         res.status(200).json(resGenerator.generateSuccessRes(coinInfo));
       } else {
+        // if coin query is not available
         throw new Error(1003);
       }
     } catch (e) {
@@ -51,11 +57,13 @@ module.exports = {
       const exchange = req.query.name;
       if (exchange) {
         const coinInfoByExchange = await currencyModel.getCoinByExchange(exchange);
+        // if coin is not available
         if (!coinInfoByExchange.length) {
           throw new Error(1002);
         }
         res.status(200).json(resGenerator.generateSuccessRes(coinInfoByExchange));
       } else {
+        // if exchange name is not available 
         throw new Error(1004);
       }
     } catch (e) {

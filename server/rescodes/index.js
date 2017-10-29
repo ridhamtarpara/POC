@@ -9,6 +9,7 @@ const logger = require('../winston');
 module.exports = {
 	errBody: (error) => {
 		const message = gError[error.message];
+		// if message is not available in response code
 		if (message) {
 			return {
 				status: 'NOTOK',
@@ -18,6 +19,7 @@ module.exports = {
 			};
 		} else {
 			logger.log(error);
+			// if unexpected error
 			return {
 				status: 'NOTOK',
 				errorcode: 1000,
@@ -34,7 +36,8 @@ module.exports = {
 		};
 	},
 
+	// generate error message
 	generateErrorRes: (e, data) => module.exports.errBody(e),
-
+	// generate success message
 	generateSuccessRes: (data, message) => module.exports.successMsg(data, message),
 };

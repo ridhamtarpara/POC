@@ -9,7 +9,4 @@ router.route('/coin-price')
 router.route('/exchange-info')
 		.get(currencyController.getCoinByExchange);
 
-		router.route('/info')
-				.get(currencyController.getDataFromWeb);
-
 module.exports = router;
