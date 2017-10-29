@@ -1,0 +1,120 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: POC App
+# during dev, should point to your local machine
+host: localhost:3000
+# basePath prefixes all resource paths
+basePath: /
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /coin-price:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: currency.controller
+    get:
+      description: Returns coin information to the caller
+      # used as the method name of the controller
+      operationId: getCoinPrice
+      parameters:
+        - name: pair
+          in: query
+          description: coin value
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/CurrencyList"
+        "400":
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /exchange-info:
+    x-swagger-router-controller: currency.controller
+    get:
+      description: Returns 'Hello' to the caller
+      operationId: getCoinByExchange
+      parameters:
+        - name: name
+          in: query
+          description: The name of the person to whom to say hello
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/CurrencyList"
+        "400":
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  Currency:
+    required:
+      - coin
+      - value
+    properties:
+      id:
+        type: number
+      exchange:
+        type: string
+      coin:
+        type: string
+      value:
+        type: number
+      updated:
+        type: string
+  CurrencyList:
+    required:
+      - status
+      - info
+    properties:
+      status:
+        type: string
+      info:
+        description: Contains the list of Currency
+        type: array
+        items:
+          $ref: "#/definitions/Currency"
+  ErrorResponse:
+    required:
+      - status
+      - errorcode
+      - messagedetail
+      - errormessage
+    properties:
+      status:
+        type: string
+      errorcode:
+        type: number
+      messagedetail:
+        type: string
+      errormessage:
+        type: string
+  Error:
+    properties:
+      originalResponse:
+        type: object
