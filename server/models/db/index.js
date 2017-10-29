@@ -7,11 +7,11 @@ Promise.promisifyAll(require('mysql/lib/Connection').prototype);
 Promise.promisifyAll(require('mysql/lib/Pool').prototype);
 
 const pool = mysql.createPool({
-    host: config.host,
-    port: config.port,
-    user: config.username,
-    password: config.password,
-    database: config.database
+    host: config.db..host,
+    port: config.db.port,
+    user: config.db.username,
+    password: config.db.password,
+    database: config..db.database
 });
 
 function getSqlConnection() {
