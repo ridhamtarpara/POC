@@ -12,5 +12,5 @@ module.exports = {
 		port: 3306
 	},
 	cronTime: '* */10 * * * *',
-	exchanges: ['coinsecure', 'coinmate', 'flowbtc', 'gatecoin']
+	exchanges: ['bittrex', 'poloniex', 'coinsecure', 'coinmate', 'flowbtc', 'gatecoin']
 };
