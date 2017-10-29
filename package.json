@@ -1,0 +1,44 @@
+{
+  "name": "POC",
+  "version": "1.0.0",
+  "description": "POC Exchange API",
+  "author": "Ridham Tarpara",
+  "keywords": [
+    "POC"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node start"
+  },
+  "private": true,
+  "engines": {
+    "node": "8.4.x",
+    "npm": "5.4.x"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "ccxt": "^1.9.282",
+    "compression": "^1.7.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-winston": "^2.4.0",
+    "http-status": "^1.0.1",
+    "method-override": "^2.3.10",
+    "moment": "^2.19.1",
+    "mysql": "^2.15.0",
+    "node-schedule": "^1.2.5",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-react": "^7.4.0"
+  }
+}
