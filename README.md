@@ -46,3 +46,4 @@
   - Pagination in the API of coin info and exchange
   - use backpack or gulp to create a build and other tasks
   - Use babel to code in ES6/7
+  - write test cases
