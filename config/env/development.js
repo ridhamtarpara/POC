@@ -11,6 +11,6 @@ module.exports = {
 		database: 'poc',
 		port: 3306
 	},
-	cronTime: '* */10 * * * *',
+	cronTime: '*/10 * * * *',
 	exchanges: ['bittrex', 'poloniex', 'coinsecure', 'coinmate', 'flowbtc', 'gatecoin']
 };

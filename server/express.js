@@ -44,8 +44,7 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-	const err = new Error('API not found', httpStatus.NOT_FOUND);
-	return next(err);
+	res.status(404).json({ status: 'NOTOK', errormessage: 'API not found', errorcode: 404});
 });
 
 // error handler, send stacktrace only during development
