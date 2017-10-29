@@ -2,7 +2,7 @@ module.exports = {
 	application: {
 		env: 'development',
 		hostName: 'localhost',
-		httpPort: 3000,
+		httpPort: 3010,
 	},
 	db: {
 		host: 'localhost',
